@@ -1,0 +1,7 @@
+.card{
+    border-radius:30px;
+    background-color:red;
+    padding:50% 50% 50%;
+    color:inherit;
+    border-color:blue;
+  }
