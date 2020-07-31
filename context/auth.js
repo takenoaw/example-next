@@ -8,9 +8,11 @@ export const AuthContext = ({ children }) => {
 
     useEffect(() => {
         const getAuth = () => {
+            //it's a obsevable 
             app.auth().onAuthStateChanged(function (user) {
                 setUser(user);
                 if(user){
+                    
                     localStorage.setItem('token',user.refreshToken);
                 }
                 else{

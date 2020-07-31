@@ -34,7 +34,7 @@ export default function Navbar() {
         <Typography variant="h6" className={classes.title}>
           News
         </Typography>
-        <Button color="inherit" onClick={logout}>Login</Button>
+        <Button color="inherit" onClick={logout}>logout</Button>
       </Toolbar>
     </AppBar>
   </div>

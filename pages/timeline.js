@@ -14,6 +14,7 @@ export default function Timeline() {
     }, [isLogged])
     return (
         <div>
+            {!isLogged && <>loading...</>}
             {
                 isLogged && 
                 <Navbar/>
