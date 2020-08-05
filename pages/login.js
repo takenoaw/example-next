@@ -45,7 +45,7 @@ export default function login(props) {
         <div className="container">
             <div className="mt-3" style={{ paddingLeft: '25%', paddingRight: '25%',paddingTop:'9%' }}>
                 <p style={{ textAlign: 'center', fontSize: '40px' }} >Login</p>
-                <form className={classes.root} noValidate autoComplete="off" >
+                <form className={classes.root} noValidate autoComplete="off" onSubmit={formik.handleSubmit}>
                     <div>
                         <TextField id="email" label="Email" type="email" fullWidth onChange={formik.handleChange} />
                     </div>

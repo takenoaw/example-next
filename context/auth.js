@@ -4,7 +4,7 @@ import { app } from '../config/firebase'
 export const Auth = React.createContext({ user: null, setUser: null });
 
 export const AuthContext = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(undefined);
 
     useEffect(() => {
         const getAuth = () => {

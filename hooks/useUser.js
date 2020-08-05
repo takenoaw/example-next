@@ -1,6 +1,6 @@
-import React, { useContext, useState, useCallback, useEffect } from 'react'
+import { useContext, useState, useCallback, } from 'react'
 import { Auth } from '../context/auth'
-import { app, db } from '../config/firebase'
+import { app } from '../config/firebase'
 import Router from 'next/router'
 
 export const useUser = () => {
@@ -8,9 +8,9 @@ export const useUser = () => {
     const [state, setState] = useState({ error: false, loading: false });
 
     const Login = useCallback(
-        async ({ email, password }) => {
+        ({ email, password }) => {
             setState({ error: false, loading: true })
-            await app.auth().signInWithEmailAndPassword(email, password)
+            app.auth().signInWithEmailAndPassword(email, password)
                 .then(result => {
                     setState({ error: false, loading: false });
                     Router.push('/timeline')
@@ -38,15 +38,16 @@ export const useUser = () => {
     )
 
     const signup = useCallback(
-        ({ email, password, name }) => {
-            console.log('object')
+         ({ email, password, username }) => {
             app.auth().createUserWithEmailAndPassword(email, password)
-                .then(() => {
+                .then((user) => {
+                    const {uid} = user.user
                     setState({ error: false, loading: false });
                     Router.push('/timeline')
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     setState({ error: true, loading: false })
+                    console.log(error)
                 })
         },
         [],
